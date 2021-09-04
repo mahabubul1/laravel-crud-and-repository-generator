@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-composer require mahabub/laravel-crud-and-repository
+composer require mahabub/laravel-crud-and-repository-generator
 ```
 
 ## Features
