@@ -1,0 +1,98 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\{{modelName}}Request;
+use App\Models\{{modelName}};
+
+class {{modelName}}Controller extends Controller
+{
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+    */
+
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::latest()->get();
+        return view('{{modelNameSingularLowerCase}}.index', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function create()
+    {
+        return view('{{modelNameSingularLowerCase}}.create');
+    }
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all());
+        return back();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNameSingularLowerCase}}.show', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        return view('{{modelNameSingularLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+   /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update({{modelName}}Request $request, $id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
+        ${{modelNameSingularLowerCase}}->update($request->all());
+        return back();
+    }
+
+   /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy($id)
+    {
+        {{modelName}}::destroy($id);
+        return back();
+    }
+}

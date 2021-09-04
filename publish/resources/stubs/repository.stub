@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Repositories;
+use Mahabub\CrudGenerator\Contracts\BaseRepository;
+
+use App\Models\{{modelName}};
+
+class {{modelName}}Repository implements BaseRepository{
+
+     protected  $model;
+     
+     public function __construct({{modelName}} $model)
+     {
+        $this->model=$model;
+     }
+
+     /**
+      * all resource get
+      * @return Collection
+      */
+     public function getAll(){
+         return $this->model::all();
+     }
+     
+     /**
+     *  specified resource get .
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function getById(int $id){
+          return $this->model::find($id);
+     }   
+
+     /**
+     * resource create
+     * @param array $attrubute
+     * @return \Illuminate\Http\Response
+     */
+
+     public function create(array $attrubute){}  
+
+    /**
+      * specified resource update
+      *
+      * @param int $id
+      * @param array $attrubute
+      * @return \Illuminate\Http\Response
+      */
+
+     public function update( int $id,array $attrubute){} 
+        
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function delete($id){
+       return $this->getById($id)->delete();
+     }
+}

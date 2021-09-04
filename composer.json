@@ -1,0 +1,34 @@
+{
+    "name": "mahabub/laravel-crud-and-repostitory-pattern-generator",
+    "description": "Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mahabub09",
+            "email": "mahabubulalam952@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0 || ^7.1 || ^7.2 || ^7.3 || ^7.4|^8.0"
+    },
+    "require-dev": {
+        "laravel/framework": "^8.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Mahabub\\CrudGenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mahabub\\CrudGenerator\\CrudServiceProvider"
+            ],
+            "aliases": {
+                "CrudGenerator": "Mahabub\\CrudGenerator\\Facades\\CrudGenerator"
+            }
+        }
+    }
+}
