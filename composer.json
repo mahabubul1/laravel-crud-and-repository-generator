@@ -1,12 +1,26 @@
 {
     "name": "mahabub/laravel-crud-and-repository-generator",
-    "description": "Laravel",
     "type": "library",
+    "description": "laravel crud generator with repository pattern",
+    "keywords": [
+        "laravel",
+        "laravel6",
+        "laravel-6",
+        "laravel7",
+        "laravel-7",
+        "laravel8",
+        "laravel-8",
+        "laravel-crud-generator",
+        "Repository",
+        "Repository pattern",
+        "Repository Crud"
+    ],
     "license": "MIT",
     "authors": [
         {
-            "name": "Mahabub09",
-            "email": "mahabubulalam952@gmail.com"
+            "name": "Md Mahabubul Alam",
+            "email": "mahabubulalam952@gmail.com",
+            "homepage": "https://github.com/mahabubul1"
         }
     ],
     "require": {
