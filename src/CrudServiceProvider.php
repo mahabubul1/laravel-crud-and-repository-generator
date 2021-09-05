@@ -14,8 +14,8 @@ class CrudServiceProvider extends ServiceProvider{
     public function boot()
     {
         
-        $this->loadViewsFrom(__DIR__.'/../publish/resources/stubs', 'CrudGenerator');
-        $this->publishes([__DIR__.'/../publish/resources/stubs' => resource_path('mahabub/stubs'), ]);
+        $this->loadViewsFrom(__DIR__.'/resources/stubs', 'CrudGenerator');
+        $this->publishes([__DIR__.'/resources/stubs' => resource_path('mahabub/stubs')] ,'resources');
         $this->commands([CrudGenerator::class]);
         
     }
@@ -24,10 +24,7 @@ class CrudServiceProvider extends ServiceProvider{
      *
      * @return void
      */
-    public function register()
-    {
-    }
+    public function register() {}
 
   
-
 }
