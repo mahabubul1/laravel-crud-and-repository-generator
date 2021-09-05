@@ -22,7 +22,7 @@ Publish the configuration file
 This step is required
 
 ```
-php artisan vendor:publish --provider="Mahabub\CrudGenerator\\CrudServiceProvider"
+php artisan vendor:publish --tag=resources
 ```
 
 ## Usage
