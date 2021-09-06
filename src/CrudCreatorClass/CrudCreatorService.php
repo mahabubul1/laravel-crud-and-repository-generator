@@ -97,7 +97,12 @@ Class CrudCreatorService {
     {
         $name= str_replace('/','',strstr($name,"/")) !=""? str_replace('/','',strstr($name,"/")) :$name;
         $path_to_file  = base_path('routes/web.php');
-        $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', {$name}Controller::class); \n";
+        $version = config('crud_generator.laravel_version');
+        if($version < 8){
+            $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', {$name}Controller); \n";
+        }else{
+           $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', {$name}Controller::class); \n";
+        }
         File::append($path_to_file, $append_route);
     }
 

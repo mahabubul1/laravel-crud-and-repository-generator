@@ -38,6 +38,8 @@ class CrudGenerator extends Command
      */
     public function handle()
     {
+
+     
         $name = $this->argument('name');
         $optional= $this->option('rep');
 
