@@ -27,7 +27,7 @@
         "php": "^7.0 || ^7.1 || ^7.2 || ^7.3 || ^7.4|^8.0"
     },
     "require-dev": {
-        "laravel/framework": "^8.0"
+        "laravel/framework": "^5.8||^6.0||^7.0||^8.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
