@@ -16,6 +16,9 @@ class CrudServiceProvider extends ServiceProvider{
         
         $this->loadViewsFrom(__DIR__.'/resources/stubs', 'CrudGenerator');
         $this->publishes([__DIR__.'/resources/stubs' => resource_path('mahabub/stubs')] ,'resources');
+        $this->publishes([
+            __DIR__ . '/config/crudgenerator.php' => config_path('crudGenerator.php'),
+        ]);
         $this->commands([CrudGenerator::class]);
         
     }

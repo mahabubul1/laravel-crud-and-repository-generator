@@ -5,7 +5,7 @@ class CrudGenerator extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'crudgenerator';
+        return 'CrudGenerator';
     }
 
 }
