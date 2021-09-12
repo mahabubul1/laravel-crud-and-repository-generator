@@ -28,10 +28,8 @@ php artisan vendor:publish --tag=resources
 ```
 php artisan vendor:publish --tag=crud-generator
 ```
- 
-```
- Then go to config/crud-generator.php and configur laravel version
-```
+
+#### Then go to config/crud-generator.php and configur laravel version
 
 ## Usage
 
