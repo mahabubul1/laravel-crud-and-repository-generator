@@ -5,11 +5,13 @@
     "homepage": "https://github.com/mahabubul1/laravel-crud-and-repository-generator",
     "keywords": [
         "laravel",
-        "laravel8",
+        "laravel-5.8",
+        "laravel-6",
+        "laravel-7",
         "laravel-8",
         "laravel-crud-generator",
         "Repository",
-        "Repository pattern",
+        "Repository Pattern",
         "Repository Crud"
     ],
     "license": "MIT",
@@ -24,7 +26,7 @@
         "php": "^7.0 || ^7.1 || ^7.2 || ^7.3 || ^7.4|^8.0"
     },
     "require-dev": {
-        "laravel/framework": "^8.0"
+        "laravel/framework": "^5.8 ||^6.0 ||^7.0 ||^8.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
