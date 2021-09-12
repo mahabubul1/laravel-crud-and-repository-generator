@@ -27,10 +27,16 @@ php artisan vendor:publish --tag=resources
 
 ## Usage
 
-After publishing the configuration file just run the below command.
+### If what want to generate without folder. Just run the below command.
 
 ```
 php artisan crud:make ModelName 
+```
+
+### If what want to generate with Repository Patter without folder. Just run the below command.
+
+```
+php artisan crud:make ModelName --rep
 ```
 
 ### If what want to generate in folder. Just run the below command.
