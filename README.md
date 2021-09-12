@@ -33,20 +33,20 @@ After publishing the configuration file just run the below command.
 php artisan crud:make ModelName 
 ```
 
-#### If what want to make controller in folder. Just run the below command.
+### If what want to make controller in folder. Just run the below command.
 
 ```
 php artisan crud:make FolderName/ModelName;
 ```
 
-### If what want to make Repository Pattern. Just run the below command.
+### If what want to make controller in folder with Repository Pattern. Just run the below command.
 
 ```
 php artisan crud:make FolderName/ModelName --rep;
 ```
-# Or
+### If what want to make controller in folder without Repository Pattern. Just run the below command.
 
 ```
-php artisan crud:make FolderName/ModelName --rep;
+php artisan crud:make FolderName/ModelName ;
 ```
 
