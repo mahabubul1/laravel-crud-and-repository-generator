@@ -2,12 +2,9 @@
     "name": "mahabub/laravel-crud-and-repository-generator",
     "type": "library",
     "description": "laravel crud generator with repository pattern",
+    "homepage": "https://github.com/mahabubul1/laravel-crud-and-repository-generator",
     "keywords": [
         "laravel",
-        "laravel6",
-        "laravel-6",
-        "laravel7",
-        "laravel-7",
         "laravel8",
         "laravel-8",
         "laravel-crud-generator",
