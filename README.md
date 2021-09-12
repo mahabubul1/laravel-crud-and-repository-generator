@@ -62,3 +62,14 @@ php artisan crud:make FolderName/ModelName --rep;
 php artisan crud:make FolderName/ModelName ;
 ```
 
+## Usage Route In Web.php below Laravel 8
+
+```
+Route::resource('photos', 'PhotoController');
+```
+## Or Route In Web.php for Laravel 8
+
+###### Just Import The Class
+
+
+
