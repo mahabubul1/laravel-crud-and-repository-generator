@@ -101,6 +101,9 @@ Class CrudCreatorService {
         if($version >= 8){
             $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', {$name}Controller::class); \n";
             File::append($path_to_file, $append_route);
+        }else{
+            $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller)'; \n";
+            File::append($path_to_file, $append_route);
         }
     }
 
