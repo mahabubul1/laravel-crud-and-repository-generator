@@ -17,13 +17,19 @@ composer require mahabub/laravel-crud-and-repository-generator
 * views
 
 ## Configuration
-Publish the configuration file
 
-This step is required
+###### Publish The Resources File
 
 ```
 php artisan vendor:publish --tag=resources
 ```
+###### Publish The Config File
+
+```
+php artisan vendor:publish --tag=crud-generator
+```
+
+#### Then go to config/crud-generator.php and configur laravel version
 
 ## Usage
 
@@ -55,4 +61,15 @@ php artisan crud:make FolderName/ModelName --rep;
 ```
 php artisan crud:make FolderName/ModelName ;
 ```
+
+## Usage Route In Web.php below Laravel 8
+
+```
+Route::resource('photos', 'PhotoController');
+```
+## Or Route In Web.php for Laravel 8
+
+###### Just Import The Class
+
+
 
