@@ -1,0 +1,108 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\{{modelName}}Request;
+use App\{{modelName}};
+use App\Repositories\{{modelName}}Repository;
+
+class {{modelName}}Controller extends Controller
+{
+    protected ${{modelNameSingularLowerCase}};
+
+    public function __construct({{modelName}}Repository ${{modelNameSingularLowerCase}})
+    {
+         $this->{{modelNameSingularLowerCase}} = ${{modelNameSingularLowerCase}};
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+    */
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}}=  $this->{{modelNameSingularLowerCase}}->getAll();
+        return view('{{modelNameSingularLowerCase}}.index', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function create()
+    {
+        return view('{{modelNameSingularLowerCase}}.create');
+    }
+
+
+   /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameSingularLowerCase}} = $this->{{modelNameSingularLowerCase}}->create($request->all());
+         return back();
+
+    }
+
+   /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+    */
+
+     public function show($id)
+    {
+        ${{modelNameSingularLowerCase}} = $this->{{modelNameSingularLowerCase}}->getById($id);
+
+         return view('{{modelNameSingularLowerCase}}.show', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+   /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function edit($id)
+    {
+        ${{modelNameSingularLowerCase}} = $this->{{modelNameSingularLowerCase}}->getById($id);
+
+         return view('{{modelNameSingularLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+   /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update({{modelName}}Request $request, $id)
+    {
+        ${{modelNameSingularLowerCase}}=$this->{{modelNameSingularLowerCase}}->update($id, $request->all());
+        return back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy($id)
+    {
+        $this->{{modelNameSingularLowerCase}}->delete($id);
+        return back();
+
+    }
+}

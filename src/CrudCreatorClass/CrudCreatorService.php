@@ -25,44 +25,89 @@ Class CrudCreatorService {
             if (!File::exists($path)) {
                 File::makeDirectory($path);
             }
-            $template = str_replace(
-                [
-                    '{{folderName}}',
-                    '{{modelName}}',
-                    '{{modelNamePluralLowerCase}}',
-                    '{{modelNameSingularLowerCase}}',
-                ],
-                [
-                    $name[0],
-                    $name[1],
-                    strtolower( Str::plural($name[1])),
-                    strtolower($name[1])
-                ],
-                 
-                ($optional)? CrudCreatorService::GetStubs('ControllerresFolder') : CrudCreatorService::GetStubs('ControllerFolder') 
-                
-            );
-
-            file_put_contents(app_path("/Http/Controllers/{$name[0]}/{$name[1]}Controller.php"), $template);
+            if($version >= 8){
+                $template = str_replace(
+                    [
+                        '{{folderName}}',
+                        '{{modelName}}',
+                        '{{modelNamePluralLowerCase}}',
+                        '{{modelNameSingularLowerCase}}',
+                    ],
+                    [
+                        $name[0],
+                        $name[1],
+                        strtolower( Str::plural($name[1])),
+                        strtolower($name[1])
+                    ],
+                     
+                    ($optional)? CrudCreatorService::GetStubs('ControllerresFolder') : CrudCreatorService::GetStubs('ControllerFolder') 
+                    
+                );
+    
+                file_put_contents(app_path("/Http/Controllers/{$name[0]}/{$name[1]}Controller.php"), $template);
+            }else{
+                $template = str_replace(
+                    [
+                        '{{folderName}}',
+                        '{{modelName}}',
+                        '{{modelNamePluralLowerCase}}',
+                        '{{modelNameSingularLowerCase}}',
+                    ],
+                    [
+                        $name[0],
+                        $name[1],
+                        strtolower( Str::plural($name[1])),
+                        strtolower($name[1])
+                    ],
+                     
+                    ($optional)? CrudCreatorService::GetStubs('ControllerresFolderov') : CrudCreatorService::GetStubs('ControllerFolderov') 
+                    
+                );
+    
+                file_put_contents(app_path("/Http/Controllers/{$name[0]}/{$name[1]}Controller.php"), $template);
+            }
 
 
         }else{
-            $template = str_replace(
-                [
-                    '{{modelName}}',
-                    '{{modelNamePluralLowerCase}}',
-                    '{{modelNameSingularLowerCase}}',
-                ],
-                [
-                    $name,
-                    strtolower( Str::plural($name)),
-                    strtolower($name)
-                ],
 
-                ($optional)? CrudCreatorService::GetStubs('Controllerres') : CrudCreatorService::GetStubs('Controller') 
+            if($version >= 8){
+
+                $template = str_replace(
+                    [
+                        '{{modelName}}',
+                        '{{modelNamePluralLowerCase}}',
+                        '{{modelNameSingularLowerCase}}',
+                    ],
+                    [
+                        $name,
+                        strtolower( Str::plural($name)),
+                        strtolower($name)
+                    ],
+    
+                    ($optional)? CrudCreatorService::GetStubs('Controllerres') : CrudCreatorService::GetStubs('Controller') 
+                    
+                );
+                file_put_contents(app_path("/Http/Controllers/{$name}Controller.php"), $template);
+            }else{
                 
-            );
-            file_put_contents(app_path("/Http/Controllers/{$name}Controller.php"), $template);
+                 $template = str_replace(
+                    [
+                        '{{modelName}}',
+                        '{{modelNamePluralLowerCase}}',
+                        '{{modelNameSingularLowerCase}}',
+                    ],
+                    [
+                        $name,
+                        strtolower( Str::plural($name)),
+                        strtolower($name)
+                    ],
+    
+                    ($optional)? CrudCreatorService::GetStubs('Controllerresov') : CrudCreatorService::GetStubs('Controllerov') 
+                    
+                );
+                file_put_contents(app_path("/Http/Controllers/{$name}Controller.php"), $template);
+            }
+           
         }
     }
 
@@ -74,17 +119,27 @@ Class CrudCreatorService {
     {
        $name= str_replace('/','',strstr($name,"/")) !=""? str_replace('/','',strstr($name,"/")) :$name;
 
-        $template = str_replace(
-            ['{{modelName}}'],
-            [$name],
-            CrudCreatorService::GetStubs('Model')
-        );
-
-        file_put_contents(app_path("Models/{$name}.php"), $template);
+        if($version >= 8){
+            $template = str_replace(
+                ['{{modelName}}'],
+                [$name],
+                CrudCreatorService::GetStubs('Model')
+            );
+            file_put_contents(app_path("Models/{$name}.php"), $template);
+        }else{
+            $template = str_replace(
+                ['{{modelName}}'],
+                [$name],
+                CrudCreatorService::GetStubs('Modelov')
+            );
+            file_put_contents(app_path("{$name}.php"), $template);
+        }
+       
     }
    
    public static function MakeMigration($name)
    {
+       $name= str_replace('/','',strstr($name,"/")) !=""? str_replace('/','',strstr($name,"/")) :$name;
        Artisan::call('make:migration create_'. strtolower( Str::plural($name)).'_table --create='. strtolower( Str::plural($name)));
 
    }
@@ -102,7 +157,7 @@ Class CrudCreatorService {
             $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', {$name}Controller::class); \n";
             File::append($path_to_file, $append_route);
         }else{
-            $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller)'; \n";
+            $append_route = 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller'); \n";
             File::append($path_to_file, $append_route);
         }
     }
