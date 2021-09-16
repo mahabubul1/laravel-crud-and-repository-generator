@@ -25,6 +25,7 @@ Class CrudCreatorService {
             if (!File::exists($path)) {
                 File::makeDirectory($path);
             }
+            $version = config('crud_generator.laravel_version');
             if($version >= 8){
                 $template = str_replace(
                     [
@@ -118,7 +119,7 @@ Class CrudCreatorService {
     public static function MakeModel($name)
     {
        $name= str_replace('/','',strstr($name,"/")) !=""? str_replace('/','',strstr($name,"/")) :$name;
-
+       $version = config('crud_generator.laravel_version');
         if($version >= 8){
             $template = str_replace(
                 ['{{modelName}}'],
