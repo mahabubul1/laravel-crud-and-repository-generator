@@ -70,7 +70,7 @@ Class CrudCreatorService {
 
 
         }else{
-
+            $version = config('crud_generator.laravel_version');
             if($version >= 8){
 
                 $template = str_replace(
