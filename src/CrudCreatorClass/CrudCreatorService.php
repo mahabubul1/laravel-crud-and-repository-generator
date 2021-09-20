@@ -126,6 +126,7 @@ class CrudCreatorService
             }
             touch(resource_path("views/{$name}/index.blade.php"));
             touch(resource_path("views/{$name}/create.blade.php"));
+            touch(resource_path("views/{$name}/show.blade.php"));
             touch(resource_path("views/{$name}/edit.blade.php"));
             touch(resource_path("views/{$name}/update.blade.php"));
         } catch (\Throwable $th) {
