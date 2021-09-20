@@ -1,6 +1,6 @@
 <?php
-
 namespace Mahabub\CrudGenerator\Commands;
+
 use Illuminate\Console\Command;
 use Mahabub\CrudGenerator\CrudCreatorClass\CrudCreatorService;
 use Mahabub\CrudGenerator\CrudCreatorClass\RepositoryGenerate;
@@ -40,10 +40,13 @@ class CrudGenerator extends Command
     {
 
      
+       
         $name = $this->argument('name');
+   
         $optional= $this->option('rep');
 
-        CrudCreatorService::MakeController($name,$optional);
+        CrudCreatorService::MakeController($name ,$optional);
+        
         CrudCreatorService::MakeModel($name);
         CrudCreatorService::MakeMigration($name);
         CrudCreatorService::MakeView($name);

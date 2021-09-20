@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Repositories;
 
 use Mahabub\CrudGenerator\Contracts\BaseRepository;
-use App\Models\{{modelName}};
+use App\{{modelName}};
 
 class {{modelName}}Repository implements BaseRepository{
 
@@ -39,7 +40,7 @@ class {{modelName}}Repository implements BaseRepository{
      */
 
      public function create(array $attrubute){
-
+          
           ${{modelNameSingularLowerCase}} =$this->model;
 
           ${{modelNameSingularLowerCase}}->name=$attrubute['name'];
@@ -57,7 +58,7 @@ class {{modelName}}Repository implements BaseRepository{
      public function update( int $id,array $attrubute){
 
           ${{modelNameSingularLowerCase}}= $this->getById($id);
-
+          
           ${{modelNameSingularLowerCase}}->name=$attrubute['name'];
           ${{modelNameSingularLowerCase}}->update();
      } 
