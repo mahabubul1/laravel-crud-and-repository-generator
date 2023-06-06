@@ -26,7 +26,7 @@ class {{modelName}}Repository implements BaseRepository{
      *  specified resource get .
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
 
      public function getById(int $id){
@@ -35,15 +35,15 @@ class {{modelName}}Repository implements BaseRepository{
 
      /**
      * resource create
-     * @param array $attrubute
-     * @return \Illuminate\Http\Response
+     * @param $request
+     * @return Response
      */
 
-     public function create(array $attrubute){
+     public function create($request){
           
           ${{modelNameSingularLowerCase}} =$this->model;
 
-          ${{modelNameSingularLowerCase}}->name=$attrubute['name'];
+          ${{modelNameSingularLowerCase}}->name=$request->name;
           ${{modelNameSingularLowerCase}}->save();
      }  
 
@@ -51,15 +51,15 @@ class {{modelName}}Repository implements BaseRepository{
       * specified resource update
       *
       * @param int $id
-      * @param array $attrubute
-      * @return \Illuminate\Http\Response
+      * @param $request
+      * @return Response
       */
 
-     public function update( int $id,array $attrubute){
+     public function update( int $id = null, $request){
 
           ${{modelNameSingularLowerCase}}= $this->getById($id);
           
-          ${{modelNameSingularLowerCase}}->name=$attrubute['name'];
+          ${{modelNameSingularLowerCase}}->name=$request->name;
           ${{modelNameSingularLowerCase}}->update();
      } 
         
@@ -67,7 +67,7 @@ class {{modelName}}Repository implements BaseRepository{
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
 
      public function delete($id){

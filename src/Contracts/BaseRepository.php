@@ -13,25 +13,25 @@ interface BaseRepository {
      *  specified resource get .
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
     */
      public function getById(int $id); 
 
      /**
       * create
-      * @param array $attrubute
-      * @return void
+      * @param  $request
+      * @return Response
       */
-     public function create(array $attrubute); 
+     public function create($request); 
 
      /**
       * specified resource update
       *
       * @param int $id
-      * @param array $attrubute
+      * @param request 
       *
       */
-     public function update( int $id,array $attrubute);  
+     public function update( int $id= null, $request);  
         
      /**
       * specified resource delete

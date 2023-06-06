@@ -38,7 +38,7 @@ class {{modelName}}Controller extends Controller
 
     public function store({{modelName}}Request $request)
     {
-        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request->all());
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create($request);
         return back();
     }
 
@@ -79,7 +79,7 @@ class {{modelName}}Controller extends Controller
     public function update({{modelName}}Request $request, $id)
     {
         ${{modelNameSingularLowerCase}} = {{modelName}}::findOrFail($id);
-        ${{modelNameSingularLowerCase}}->update($request->all());
+        ${{modelNameSingularLowerCase}}->update($id,$request);
         return back();
     }
 
