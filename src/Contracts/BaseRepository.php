@@ -16,7 +16,7 @@ interface BaseRepository {
      * @return Response
     */
      public function getById(int $id); 
-
+     
      /**
       * create
       * @param  $request
